@@ -7,7 +7,7 @@ const Contact = () => (
 
     <div className="content-block">
       <div className="content-block__body contact__body">
-        <form method="POST" action="http://formspree.io/tom@tomraffin.com">
+        <form method="POST" action="https://formspree.io/tom@tomraffin.com">
           <input type="email" name="_replyto" placeholder="Your email" />
           <input type="hidden" name="_next" value="//www.tomraffin.com/thanks" />
           <input type="hidden" name="_subject" value="A message from tomraffin.com" />
