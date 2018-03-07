@@ -1,0 +1,43 @@
+html {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #111;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+a {
+  color: #4e87e4;
+  text-decoration: none;
+
+  &:hover {
+    color: #ff2e54;
+  }
+}
+
+h1 {
+  font-size: 1.625rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+p {
+  line-height: 1.75rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+#root {
+  height: 100%;
+}

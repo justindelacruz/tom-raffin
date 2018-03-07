@@ -1,0 +1,147 @@
+@import '../util.scss';
+
+.nav {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: $mobile-gutter / 2;
+    padding: $mobile-gutter / 2;
+    font-size: 1.875rem;
+    cursor: pointer;
+
+    @include respond-to(small) {
+      margin: $desktop-gutter / 2;
+      padding: $desktop-gutter / 2;  
+    }
+    
+    &:hover {
+      color: rgba(17, 17, 17, 0.6);
+    }
+
+    @include respond-to(small) {
+      display: none;
+    }
+
+    &--menu {
+      color: rgba(255, 255, 255, 0.6);
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  &__title {
+    color: #111;
+    font-family: Lato, sans-serif;
+    font-size: 50px;
+    letter-spacing: -.1rem;
+    line-height: 54px;
+    font-weight: 400;
+    white-space: pre-wrap;
+    display: block;
+    width: 200px;
+
+    @include respond-to(small) {
+      width: auto;
+    }
+  }
+
+  &__menu-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px $desktop-gutter $desktop-gutter;
+    transform: translateX(-100vw);
+    background-color: #4e87e4;
+    z-index: 300;
+    transition: transform 250ms ease-in-out;
+
+    &--active {
+      transform: translateX(0);
+    }
+
+    @include respond-to(small) {
+      position: relative;
+      padding: 0;
+      transform: none;
+      transition: none;
+      background-color: transparent;
+    }
+  }
+
+  &__body--open {
+    overflow: hidden;
+
+    @include respond-to(small) {
+      overflow: visible;
+    }
+  }
+
+  &__menu {
+    list-style-type: none;
+    margin: 30px 0 0;
+    padding: 0;
+    font-size: 1.125rem;
+    font-weight: 300;
+
+    &--minor {
+      font-size: 1rem;
+    }
+  }
+
+  &__section {
+    margin-bottom: 20px;
+
+    &--text {
+      cursor: default;
+    }
+  }
+
+  &__subsection {
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__section, &__subsection {
+    color: rgba(255, 255, 255, 0.6);
+
+    a {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+
+    &--active {
+      a {
+        color: white;
+      }
+    }
+
+    @include respond-to(small) {
+      color: #878787;
+
+      a {
+        color: #878787;
+
+        &:hover {
+          color: #ff2e54;
+        }
+      }
+
+      &--active {
+        a {
+          color: #4e87e4;
+        }
+      }
+    }
+  }
+
+}

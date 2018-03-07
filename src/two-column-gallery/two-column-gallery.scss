@@ -1,0 +1,42 @@
+@import '../util.scss';
+
+.two-column-gallery {
+  padding: $mobile-gutter;
+  background-color: black;
+  min-height: 100%;
+  box-sizing: border-box;
+
+  @include respond-to(small) {
+    padding: $desktop-gutter;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: center;
+
+    &:last-child {
+      margin-bottom: 200px;
+
+      @include respond-to(small) {
+        margin-bottom: 220px;
+      }
+    }
+  }
+
+  &__item {
+    margin: 0 $mobile-gutter / 2 $mobile-gutter 0;
+
+    @include respond-to(small) {
+      margin: 0 $desktop-gutter / 2 $desktop-gutter 0;
+    }
+  }
+
+  &__item:nth-child(even) {
+    transform: translateY(50%);
+    margin: 0 0 $mobile-gutter $mobile-gutter / 2;
+
+    @include respond-to(small) {
+      margin: 0 0 $desktop-gutter $desktop-gutter / 2;
+    }
+  }
+}

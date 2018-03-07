@@ -1,0 +1,50 @@
+@import '../util.scss';
+
+$grid-gutter: 20px;
+
+.gallery {
+  padding: $mobile-gutter;
+  background-color: black;
+  min-height: 100%;
+  box-sizing: border-box;
+
+  @include respond-to(small) {
+    padding: $desktop-gutter;
+  }
+
+  &__grid {
+    margin: 0 auto;
+  }
+
+  &__image {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__grid-item {
+    width: calc((100% - #{$grid-gutter}) / 2);
+    margin-bottom: $grid-gutter;
+    transition: opacity 250ms;
+    display: inline-block;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    @include respond-to(small) {
+      width: calc((100% -  #{$grid-gutter}) / 2);
+    }
+
+    @include respond-to(medium) {
+      width: calc((100% -  #{$grid-gutter}) / 2);
+    }
+
+    @include respond-to(large) {
+      width: calc((100% -  #{$grid-gutter}*2) / 3);
+    }
+
+    @include respond-to(xlarge) {
+      width: calc((100% -  #{$grid-gutter}*3) / 4);
+    }
+  }
+}

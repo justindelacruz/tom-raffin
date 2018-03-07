@@ -1,0 +1,57 @@
+$desktop-gutter: 40px;
+$mobile-gutter: 20px;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "small" {
+    @media (min-width: 767px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "medium" {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "large" {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "xlarge" {
+    @media (min-width: 1600px) {
+      @content;
+    }
+  }
+}
+
+.content-block {
+  display: flex;
+  flex-direction: column;
+
+  &--reverse {
+    flex-direction: column-reverse;
+  }
+
+  @include respond-to(small) {
+    flex-direction: row;
+    margin: 0 -20px;
+  }
+
+  &__body,
+  &__image {
+    flex: 0 1 100%;
+
+    @include respond-to(small) {
+      flex-basis: 50%;
+      padding: 0 20px;
+    }
+  }
+  
+  &__image {
+    text-align: center;
+
+  }
+}

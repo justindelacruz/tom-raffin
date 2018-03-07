@@ -1,0 +1,41 @@
+@import '../util.scss';
+
+.info {
+  position: relative;
+  max-width: 100%;
+  margin: #{$mobile-gutter / 2} auto 0;
+  font-size: 0.875rem;
+  text-align: right;
+  color: white;
+
+  @include respond-to(small) {
+    margin: #{$desktop-gutter / 2} auto 0;
+  }
+
+  p {
+    line-height: 1.5rem;
+    margin: 0 0 8px;
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__navigation {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+
+    &:hover {
+      color: #ff2e54;
+    }
+  }
+
+  &__dimension {
+    white-space: nowrap;
+  }
+}

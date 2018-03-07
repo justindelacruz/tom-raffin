@@ -1,0 +1,138 @@
+@import '../util.scss';
+
+.image {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: $mobile-gutter;
+  background-color: black;
+  height: 100%;
+  box-sizing: border-box;
+
+  @include respond-to(small) {
+    justify-content: center;
+    padding: $desktop-gutter;
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 200;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__overlay-button {
+    position: relative;
+    display: block;
+    width: 50%;
+    height: 100%;
+    align-content: center;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &--prev {
+      cursor: w-resize;
+    }
+
+    &--next {
+      text-align: right;
+      cursor: e-resize;
+    }
+  }
+
+  &__overlay-icon {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    color: rgba(255,255,255,0.9);
+    transition: all 100ms ease-in-out;
+
+    &:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+
+  &__transition-wrapper {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+
+    @include respond-to(small) {
+      height: calc(100vh - #{$desktop-gutter} * 2);
+    }
+  }
+
+  &__item-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: opacity 500ms ease-in-out;
+  }
+
+  &__item {
+    position: relative;
+    width: 100%;
+    max-height: 100%;
+    flex: 0 1 100%;
+    overflow: hidden;
+
+    @include respond-to(small) {
+      display: flex;
+      justify-content: center;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include respond-to(small) {
+      height: 100%;
+    }
+  }
+
+  &__fade-enter {
+    opacity: 0;
+    z-index: 100;
+  }
+
+  &__fade-enter-active {
+    opacity: 1;
+  }
+
+  &__fade-exit {
+    display: flex;
+    opacity: 1;
+
+    @include respond-to(small) {
+      display: flex;
+      opacity: 1;
+    }
+  }
+
+  &__fade-exit-active {
+    opacity: 0;
+  }
+}

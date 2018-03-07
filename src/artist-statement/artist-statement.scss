@@ -1,0 +1,9 @@
+@import '../util.scss';
+
+.artist-statement {
+  padding: $mobile-gutter;
+
+  @include respond-to(small) {
+    padding: $desktop-gutter;
+  }
+}

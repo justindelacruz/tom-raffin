@@ -1,0 +1,10 @@
+@import '../util.scss';
+
+.bio {
+  padding: $mobile-gutter;
+  background-color: white;
+
+  @include respond-to(small) {
+    padding: $desktop-gutter;
+  }
+}
