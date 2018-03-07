@@ -61,7 +61,7 @@ class Image extends Component {
     const nextLink = hasNext ? `/image/${galleryId}/${nextImage.id}` : `/gallery/${galleryId}`;
 
     return (
-      <DocumentTitle title={getPageTitle(`${galleryImage.name || index} - ${gallery.section} - ${gallery.subsection}`)}>
+      <DocumentTitle title={getPageTitle(`${galleryImage.name || index+1} - ${gallery.section} - ${gallery.subsection}`)}>
         <div className="image">
           <TransitionGroup className="image__transition-wrapper">
             <CSSTransition key={galleryImage.src} classNames="image__fade" timeout={750}>
