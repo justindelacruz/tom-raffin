@@ -60,7 +60,7 @@
     left: 0;
     right: 0;
     padding: 20px $desktop-gutter $desktop-gutter;
-    transform: translateX(-100vw);
+    transform: translateX(100vw);
     background-color: #4e87e4;
     z-index: 300;
     transition: transform 250ms ease-in-out;
