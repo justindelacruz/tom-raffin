@@ -51,8 +51,7 @@ const AppRoutes = () => (
                 <Route path="/contact" component={Contact}/>
                 <Route path="/thanks" component={ContactThanks}/>
                 <Route path="/about" render={() => <Redirect to="/bio" />} />
-                <Route component={PageNotFound}
-                 />
+                <Route component={PageNotFound} />
               </Switch>
             </div>
           </div>
