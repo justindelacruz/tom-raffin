@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import DocumentTitle from 'react-document-title';
 import './gallery.css';
-import { ASSET_BASE_URL } from '../constants';
+import { ASSET_BASE_URL, getPageTitle } from '../constants';
 import galleryData from '../data.json';
 import Masonry from 'masonry-layout';
 import ImagesLoaded from 'imagesloaded';
@@ -48,16 +48,19 @@ class Gallery extends Component {
   render() {
     const { match } = this.props;
     const galleryId = match.params.galleryId;
-    const galleryImages = galleryData[galleryId].items.map((item, i) => {
+    const gallery = galleryData[galleryId];
+    const galleryImages = gallery.items.map((item, i) => {
       return <GalleryImage galleryId={galleryId} item={item} key={item.src} />;
     });
 
     return (
-      <div className="gallery">
-        <div className="gallery__grid" ref={el => this.gridEl = el}>
-          { galleryImages }
+      <DocumentTitle title={getPageTitle(`${gallery.section} - ${gallery.subsection}`)}>
+        <div className="gallery">
+          <div className="gallery__grid" ref={el => this.gridEl = el}>
+            { galleryImages }
+          </div>
         </div>
-      </div>
+      </DocumentTitle>
     );
   }
 }

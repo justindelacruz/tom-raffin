@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import throttle from 'lodash/throttle';
 import { Link } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { ASSET_BASE_URL } from '../constants';
+import DocumentTitle from 'react-document-title';
+import { ASSET_BASE_URL, getPageTitle } from '../constants';
 import './image.css';
 import Info from './info';
 import galleryData from '../data.json';
@@ -44,7 +45,8 @@ class Image extends Component {
     const { match } = this.props;
     const { imageHeight } = this.state;
     const { galleryId, imageId } = match.params;
-    const images = galleryData[galleryId].items;
+    const gallery = galleryData[galleryId];
+    const images = gallery.items;
     const index = images.findIndex((item) => {
       return imageId === item.id.toString();
     });
@@ -59,61 +61,63 @@ class Image extends Component {
     const nextLink = hasNext ? `/image/${galleryId}/${nextImage.id}` : `/gallery/${galleryId}`;
 
     return (
-      <div className="image">
-        <TransitionGroup className="image__transition-wrapper">
-          <CSSTransition key={galleryImage.src} classNames="image__fade" timeout={750}>
-            <div className="image__item-wrapper">
-              <div className="image__item">
-                <div className="image__overlay">
-                  <Link to={prevLink} className="image__overlay-button image__overlay-button--prev">
-                    <i className="material-icons image__overlay-icon">navigate_before</i>
-                  </Link>
-                  <Link to={nextLink} className="image__overlay-button image__overlay-button--next">
-                    <i className="material-icons image__overlay-icon">navigate_next</i>
-                  </Link>
+      <DocumentTitle title={getPageTitle(`${galleryImage.name || index} - ${gallery.section} - ${gallery.subsection}`)}>
+        <div className="image">
+          <TransitionGroup className="image__transition-wrapper">
+            <CSSTransition key={galleryImage.src} classNames="image__fade" timeout={750}>
+              <div className="image__item-wrapper">
+                <div className="image__item">
+                  <div className="image__overlay">
+                    <Link to={prevLink} className="image__overlay-button image__overlay-button--prev">
+                      <i className="material-icons image__overlay-icon">navigate_before</i>
+                    </Link>
+                    <Link to={nextLink} className="image__overlay-button image__overlay-button--next">
+                      <i className="material-icons image__overlay-icon">navigate_next</i>
+                    </Link>
+                  </div>
+
+                  <img
+                    src={`${ASSET_BASE_URL}/images/full/${galleryImage.src}`}
+                    alt={galleryImage.name}
+                    className="image__image"
+                    ref={(r) => this.imageRef = r}
+                    onLoad={this.onImageLoad}
+                  />
+
+                  { // Preload previous image
+                    hasPrev &&
+                    <img
+                      src={`${ASSET_BASE_URL}/images/full/${prevImage.src}`}
+                      alt={prevImage.name}
+                      className="image__item--hidden"
+                    />
+                  }
+
+                  { // Preload next image
+                    hasNext &&
+                    <img
+                      src={`${ASSET_BASE_URL}/images/full/${nextImage.src}`}
+                      className="image__item--hidden"
+                      alt={nextImage.name}
+                    />
+                  }
                 </div>
 
-                <img
-                  src={`${ASSET_BASE_URL}/images/full/${galleryImage.src}`}
-                  alt={galleryImage.name}
-                  className="image__image"
-                  ref={(r) => this.imageRef = r}
-                  onLoad={this.onImageLoad}
+                <Info
+                  name={galleryImage.name}
+                  date={galleryImage.date}
+                  dimension={galleryImage.dimension}
+                  medium={galleryImage.medium}
+                  description={galleryImage.description}
+                  prevLink={prevLink}
+                  nextLink={nextLink}
+                  width={infoHeight}
                 />
-
-                { // Preload previous image
-                  hasPrev &&
-                  <img
-                    src={`${ASSET_BASE_URL}/images/full/${prevImage.src}`}
-                    alt={prevImage.name}
-                    className="image__item--hidden"
-                  />
-                }
-
-                { // Preload next image
-                  hasNext &&
-                  <img
-                    src={`${ASSET_BASE_URL}/images/full/${nextImage.src}`}
-                    className="image__item--hidden"
-                    alt={nextImage.name}
-                  />
-                }
               </div>
-
-              <Info
-                name={galleryImage.name}
-                date={galleryImage.date}
-                dimension={galleryImage.dimension}
-                medium={galleryImage.medium}
-                description={galleryImage.description}
-                prevLink={prevLink}
-                nextLink={nextLink}
-                width={infoHeight}
-              />
-            </div>
-          </CSSTransition>
-        </TransitionGroup>
-      </div>
+            </CSSTransition>
+          </TransitionGroup>
+        </div>
+      </DocumentTitle>
     );
   }
 }

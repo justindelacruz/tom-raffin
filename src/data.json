@@ -1,6 +1,6 @@
 {
   "watercolors-80-89": {
-    "section": "watercolors",
+    "section": "Watercolors",
     "subsection": "1980-1989",
     "items": [
       {
@@ -83,7 +83,7 @@
     ]
   },
   "watercolors-90-99": {
-    "section": "watercolors",
+    "section": "Watercolors",
     "subsection": "1990-1999",
     "items": [
       {
@@ -221,7 +221,7 @@
     ]
   },
   "watercolors-00-05": {
-    "section": "watercolors",
+    "section": "Watercolors",
     "subsection": "2000-2005",
     "items": [
       {
@@ -667,7 +667,7 @@
     ]
   },
   "watercolors-07-10": {
-    "section": "watercolors",
+    "section": "Watercolors",
     "subsection": "2007-2010",
     "items": [
       {
@@ -860,8 +860,8 @@
     ]
   },
   "watercolors-featured": {
-    "section": "watercolors",
-    "subsection": "featured",
+    "section": "Watercolors",
+    "subsection": "Featured",
     "items": [
       {
         "id": 61,
@@ -1174,7 +1174,7 @@
     ]
   },
   "oils-14-18": {
-    "section": "oils",
+    "section": "Oils",
     "subsection": "2014-2018",
     "items": [
       {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import DocumentTitle from 'react-document-title';
 import './two-column-gallery.css';
-import { ASSET_BASE_URL } from '../constants';
+import { ASSET_BASE_URL, getPageTitle } from '../constants';
 import galleryData from '../data.json';
 import { Link } from 'react-router-dom';
 
@@ -26,22 +27,25 @@ class TwoColumnGalleryImage extends Component {
   render() {
     const { match } = this.props;
     const galleryId = match.params.galleryId;
-    const galleryImages = galleryData[galleryId].items.map(item =>
+    const gallery = galleryData[galleryId];
+    const galleryImages = gallery.items.map(item =>
       <GalleryImage galleryId={galleryId} item={item} key={item.src} />
     );
 
     const chunkedGalleryImages = chunks(galleryImages, 2);
 
     return (
-      <div className="two-column-gallery">
-        { chunkedGalleryImages.map((chunk, i) => {
-          return (
-            <div className="two-column-gallery__row" key={i}>
-              { chunk.map(image => { return image }) }
-            </div>
-          );
-        })}
-      </div>
+      <DocumentTitle title={getPageTitle(`${gallery.section} - ${gallery.subsection}`)}>
+        <div className="two-column-gallery">
+          { chunkedGalleryImages.map((chunk, i) => {
+            return (
+              <div className="two-column-gallery__row" key={i}>
+                { chunk.map(image => { return image }) }
+              </div>
+            );
+          })}
+        </div>
+      </DocumentTitle>
     );
   }
 }
