@@ -37,7 +37,7 @@ class Nav extends Component {
     const { location: { pathname } } = this.props;
 
     return (
-      <div className="nav">
+      <nav className="nav">
         <Link to="/" className="nav__title">
           Tom Raffin
         </Link>
@@ -77,7 +77,7 @@ class Nav extends Component {
             </li>
           </ul>
         </div>
-      </div>
+      </nav>
     );
   }
 };

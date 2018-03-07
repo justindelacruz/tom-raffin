@@ -36,10 +36,10 @@ const AppRoutes = () => (
       <Route
         render={({ location }) => (
           <div className="main">
-            <nav className="main__nav">
+            <div className="main__nav">
               <Nav />
-            </nav>
-            <div className="main__body">
+            </div>
+            <section className="main__body" role="main">
               <Switch location={location}>
                 <Route exact path="/" component={Home}/>
                 <Route path="/about/oils" component={OilStatement} />
@@ -53,7 +53,7 @@ const AppRoutes = () => (
                 <Route path="/about" render={() => <Redirect to="/bio" />} />
                 <Route component={PageNotFound} />
               </Switch>
-            </div>
+            </section>
           </div>
         )} />
     </Router>
