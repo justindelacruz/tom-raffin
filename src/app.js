@@ -12,6 +12,7 @@ import Gallery from './gallery/gallery';
 import TwoColumnGallery from './two-column-gallery/two-column-gallery';
 import Image from './image/image';
 import Contact from './contact/contact'
+import ContactThanks from './contact/thanks'
 import OilStatement from "./artist-statement/oils";
 import WatercolorsStatement from "./artist-statement/watercolors";
 
@@ -33,6 +34,7 @@ const AppRoutes = () => (
                 <Route path="/image/:galleryId/:imageId" component={Image} />
                 <Route path="/bio" component={Bio}/>
                 <Route path="/contact" component={Contact}/>
+                <Route path="/thanks" component={ContactThanks}/>
                 <Route render={() => <div>Not Found</div>} />
               </Switch>
             </div>
