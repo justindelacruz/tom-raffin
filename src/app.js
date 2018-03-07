@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
+  Redirect,
 } from 'react-router-dom'
 import './app.css';
 import Home from './home/home';
@@ -35,6 +36,7 @@ const AppRoutes = () => (
                 <Route path="/bio" component={Bio}/>
                 <Route path="/contact" component={Contact}/>
                 <Route path="/thanks" component={ContactThanks}/>
+                <Route path="/about" render={() => <Redirect to="/bio" />} />
                 <Route render={() => <div>Not Found</div>} />
               </Switch>
             </div>
