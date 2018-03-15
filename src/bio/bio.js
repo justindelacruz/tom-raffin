@@ -21,11 +21,9 @@ const Bio = () => (
             of Medicine and Biomedical Ethics, former Chief of Pulmonary and Critical Care Medicine, and Co-Founder
             and Director Emeritus of the Stanford University Center for Biomedical Ethics. He has written over 200
             articles, chapters and books. He co-founded Rigel Pharmaceuticals, Inc., a South San Francisco drug discovery
-            company in 1996. In 2001, Tom co-founded{' '}
-            <a target="_blank" rel="noopener noreferrer" href="https://www.thpartners.net/raffin.html">Telegraph Hill
-            Partners</a>, a life sciences growth equity investment firm where he was a senior partner. He is currently
-            the vice chairman of the board of directors of the National AIDS Memorial Grove in Golden Gate Park,
-            San Francisco.
+            company in 1996. In 2001, Tom co-founded Telegraph Hill Partners, a life sciences growth equity investment
+            firm where he was a senior partner. He is currently the vice chairman of the board of directors of the
+            National AIDS Memorial Grove in Golden Gate Park, San Francisco.
           </p>
 
           <p>
