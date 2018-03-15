@@ -1,6 +1,12 @@
 $desktop-gutter: 40px;
 $mobile-gutter: 20px;
 
+$nav-inner-width: 150px;
+$nav-width: $nav-inner-width + 2*$desktop-gutter;
+$nav-height: 680px;
+$nav-height-small: 560px;
+$nav-height-extra-small: 520px;
+
 @mixin respond-to($breakpoint) {
   @if $breakpoint == "small" {
     @media (min-width: 767px) {

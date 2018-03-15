@@ -29,10 +29,10 @@
     }
 
     &--menu {
-      color: rgba(255, 255, 255, 0.6);
+      color: #878787;
 
       &:hover {
-        color: white;
+        color: rgba(17, 17, 17, 1);
       }
     }
   }
@@ -40,16 +40,22 @@
   &__title {
     color: #111;
     font-family: Lato, sans-serif;
-    font-size: 50px;
+    font-size: 3.125rem;
     letter-spacing: -.1rem;
-    line-height: 54px;
+    line-height: 3.375rem;
     font-weight: 400;
     white-space: pre-wrap;
     display: block;
     width: 200px;
+    transition: font-size 150ms ease-in-out, line-height 150ms ease-in-out;
 
     @include respond-to(small) {
       width: auto;
+
+      @media (max-height: $nav-height) {
+        font-size: 40px;
+        line-height: 44px;
+      }
     }
   }
 
@@ -61,9 +67,9 @@
     right: 0;
     padding: 20px $desktop-gutter $desktop-gutter;
     transform: translateX(100vw);
-    background-color: #4e87e4;
+    background-color: white;
     z-index: 300;
-    transition: transform 250ms ease-in-out;
+    transition: transform 150ms ease-in-out;
 
     &--active {
       transform: translateX(0);
@@ -89,6 +95,7 @@
   &__menu {
     list-style-type: none;
     margin: 30px 0 0;
+    transition: margin 150ms ease-in-out, font-size 150ms ease-in-out;
     padding: 0;
     font-size: 1.125rem;
     font-weight: 300;
@@ -96,52 +103,62 @@
     &--minor {
       font-size: 1rem;
     }
+
+    @include respond-to(small) {
+      @media (max-height: $nav-height) {
+        margin-top: 20px;
+        font-size: 1rem;
+
+        &:not(:first-of-type) {
+          margin-top: 15px;
+        }
+      }
+    }
   }
 
   &__section {
     margin-bottom: 20px;
+    transition: margin 150ms ease-in-out;
 
     &--text {
       cursor: default;
+    }
+
+    @media (max-height: $nav-height) {
+      margin-bottom: 15px;
     }
   }
 
   &__subsection {
     padding-left: 10px;
     margin-bottom: 10px;
+    transition: margin 150ms ease-in-out;
+
+    @media (max-height: $nav-height) {
+      margin-bottom: 10px;
+    }
   }
 
   &__section, &__subsection {
-    color: rgba(255, 255, 255, 0.6);
+    color: #878787;
 
     a {
-      color: rgba(255, 255, 255, 0.6);
+      color: #878787;
     }
 
 
     &--active {
       a {
-        color: white;
+        color: #4e87e4;
       }
     }
 
     @include respond-to(small) {
-      color: #878787;
-
       a {
-        color: #878787;
-
         &:hover {
           color: #ff2e54;
         }
       }
-
-      &--active {
-        a {
-          color: #4e87e4;
-        }
-      }
     }
   }
-
 }

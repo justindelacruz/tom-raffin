@@ -1,8 +1,5 @@
 @import 'util.scss';
 
-$desktop-gutter: 40px;
-$mobile-gutter: 20px;
-
 .main {
   display: flex;
   flex-wrap: wrap;
@@ -19,17 +16,31 @@ $mobile-gutter: 20px;
     @include respond-to(small) {
       flex: 0 0 150px;
       padding: $desktop-gutter;
+      transition: padding 150ms ease-in-out;
+
+      @media (min-height: $nav-height-extra-small) {
+        // If it doesn't fit, we must scroll
+        position: fixed;
+        width: $nav-inner-width;
+      }
+
+      @media (max-height: $nav-height) {
+        padding: $mobile-gutter $desktop-gutter;
+      }
     }
   }
 
   &__body {
     flex: 0 1 100%;
     height: calc(100% - 148px);
+    min-width: 0;
 
     @include respond-to(small) {
       height: 100%;
-    }
 
-    min-width: 0;
+      @media (min-height: $nav-height-extra-small) {
+        margin-left: $nav-width;
+      }
+    }
   }
 }
