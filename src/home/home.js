@@ -43,15 +43,6 @@ class Home extends Component {
             />
           </Link>
         </div>
-        <div className="home__caption">
-          <Info
-            name=""
-            date="2017"
-            dimension="30x26"
-            medium="Oil on canvas"
-            width={infoHeight}
-          />
-        </div>
       </div>
     );
   }

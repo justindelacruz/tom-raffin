@@ -10,7 +10,7 @@
   flex-direction: column;
 
   @include respond-to(small) {
-    padding: $desktop-gutter;
+    padding: $mobile-gutter;
   }
 
   &__caption {
