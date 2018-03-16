@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './info.css';
 
 class Info extends Component {
   render() {
-    const { name, date, dimension, medium, description, prevLink, nextLink, width } = this.props;
+    const { compress, name, date, dimension, medium, description, prevLink, nextLink, width } = this.props;
 
     return (
-      <div className="info" style={{ width }}>
-        <p className="info__text">
+      <div className={classNames('info', { 'info--inline': compress })} style={{ width }}>
+        <p className={classNames('info__text', { 'info__text--inline': compress })}>
           {name && <strong>{ name } &middot;{' '}</strong> }
           { date && <span>{ date } &middot;{' '}</span> }
           { medium && <span>{medium} &middot;{' '}</span>}
           { dimension && <span className="info__dimension">{ dimension }</span>}
-          { description && <span><br />{ description }</span>}
         </p>
 
-        <div className="info__navigation">
+        <div className={classNames('info__navigation', { 'info__navigation--inline': compress })}>
           { prevLink && <span><Link to={prevLink}>Prev</Link> / </span> }
           { nextLink && <Link to={nextLink}>Next</Link> }
         </div>
@@ -27,6 +27,7 @@ class Info extends Component {
 }
 
 Info.propTypes = {
+  compress: PropTypes.boolean,
   name: PropTypes.string,
   date: PropTypes.string,
   dimension: PropTypes.string,

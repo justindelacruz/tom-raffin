@@ -13,7 +13,6 @@
 
   @include respond-to(small) {
     justify-content: center;
-    padding: $desktop-gutter;
   }
 
   &__overlay {
@@ -69,7 +68,7 @@
     height: 100%;
 
     @include respond-to(small) {
-      height: calc(100vh - #{$desktop-gutter} * 2);
+      height: calc(100vh - #{$mobile-gutter} * 2);
     }
   }
 

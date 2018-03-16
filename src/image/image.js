@@ -112,6 +112,7 @@ class Image extends Component {
                   prevLink={prevLink}
                   nextLink={nextLink}
                   width={infoHeight}
+                  compress={galleryId.indexOf('oils') !== -1}
                 />
               </div>
             </CSSTransition>
