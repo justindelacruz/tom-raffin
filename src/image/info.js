@@ -11,9 +11,9 @@ class Info extends Component {
     return (
       <div className={classNames('info', { 'info--inline': compress })} style={{ width }}>
         <p className={classNames('info__text', { 'info__text--inline': compress })}>
-          {name && <strong>{ name } &middot;{' '}</strong> }
-          { date && <span>{ date } &middot;{' '}</span> }
-          { medium && <span>{medium} &middot;{' '}</span>}
+          {name && <strong>{ name }&nbsp;&middot;&nbsp;</strong> }
+          { date && <span>{ date }&nbsp;&middot;&nbsp;</span> }
+          { medium && <span>{medium}&nbsp;&middot;&nbsp;</span>}
           { dimension && <span className="info__dimension">{ dimension }</span>}
         </p>
 
