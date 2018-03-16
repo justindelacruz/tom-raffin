@@ -17,7 +17,7 @@
 
     @include respond-to(small) {
       margin: $desktop-gutter / 2;
-      padding: $desktop-gutter / 2;  
+      padding: $desktop-gutter / 2;
     }
     
     &:hover {
@@ -39,7 +39,7 @@
 
   &__title {
     color: #111;
-    font-family: Lato, sans-serif;
+    font-family: IowanOldStyleBTPro-Roman, Lato, serif;
     font-size: 3.125rem;
     letter-spacing: -.1rem;
     line-height: 3.375rem;
