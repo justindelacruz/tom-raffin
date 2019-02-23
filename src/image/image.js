@@ -19,7 +19,6 @@ class Image extends Component {
   }
 
   updateImageHeight = () => {
-    console.log('updateImageHeight', this.imageRef);
     return this.setState({ imageHeight: this.imageRef ? this.imageRef.height : 0 });
   };
 
@@ -32,7 +31,6 @@ class Image extends Component {
   }
 
   componentDidMount(e) {
-    console.log('componentDidMount');
     this.updateImageHeight();
     window.addEventListener("resize", this.handleResizeWindow);
   };
@@ -57,8 +55,9 @@ class Image extends Component {
     const hasNext = index+1 < images.length-1;
     const prevImage = hasPrev ? galleryData[galleryId].items[index-1] : null;
     const nextImage = hasNext ? galleryData[galleryId].items[index+1] : null;
-    const prevLink = hasPrev ? `/image/${galleryId}/${prevImage.id}` : `/gallery/${galleryId}`;
-    const nextLink = hasNext ? `/image/${galleryId}/${nextImage.id}` : `/gallery/${galleryId}`;
+    const homeLink = `/gallery/${galleryId}`;
+    // const prevLink = hasPrev ? `/image/${galleryId}/${prevImage.id}` : homeLink;
+    // const nextLink = hasNext ? `/image/${galleryId}/${nextImage.id}` : homeLink;
 
     return (
       <DocumentTitle title={getPageTitle(`${galleryImage.name || index+1} - ${gallery.section} - ${gallery.subsection}`)}>
@@ -68,12 +67,18 @@ class Image extends Component {
               <div className="image__item-wrapper">
                 <div className="image__item">
                   <div className="image__overlay">
+                    <Link to={homeLink} className="image__overlay-button image__overlay-button--home">
+                      <i className="material-icons image__overlay-icon">navigate_before</i>
+                    </Link>
+                    {/*
                     <Link to={prevLink} className="image__overlay-button image__overlay-button--prev">
                       <i className="material-icons image__overlay-icon">navigate_before</i>
                     </Link>
+
                     <Link to={nextLink} className="image__overlay-button image__overlay-button--next">
                       <i className="material-icons image__overlay-icon">navigate_next</i>
                     </Link>
+                    */}
                   </div>
 
                   <img
@@ -108,9 +113,6 @@ class Image extends Component {
                   date={galleryImage.date}
                   dimension={galleryImage.dimension}
                   medium={galleryImage.medium}
-                  description={galleryImage.description}
-                  prevLink={prevLink}
-                  nextLink={nextLink}
                   width={infoHeight}
                   compress={galleryId.indexOf('oils') !== -1}
                 />

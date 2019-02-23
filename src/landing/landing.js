@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import throttle from 'lodash/throttle';
 import { Link } from 'react-router-dom';
 import { ASSET_BASE_URL } from '../constants';
-import './home.css';
+import './landing.css';
 
-class Home extends Component {
+class Landing extends Component {
   constructor(props) {
     super(props);
 
@@ -29,20 +29,24 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home">
-        <div className="home__wrapper">
-          <Link to="/installation" className="home__link">
+      <div className="landing">
+        <div className="landing__wrapper">
+          <Link to="/main" className="landing__link">
             <img
-              src={`${ASSET_BASE_URL}/images/full/oils/2014-2018/9.jpg`}
-              className="home__image" alt="Oil"
-              ref={(r) => this.imageRef = r}
-              onLoad={this.updateImageHeight}
+              src={`${ASSET_BASE_URL}/images/gallery.jpg`}
+              className="landing__image"
+              alt="Gallery"
             />
           </Link>
+          <div className="landing__enter">
+            <Link to="/main" className="landing__link">
+              enter
+            </Link>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default Home;
+export default Landing;

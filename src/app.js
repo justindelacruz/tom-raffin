@@ -8,16 +8,19 @@ import {
 import DocumentTitle from 'react-document-title';
 import { getPageTitle } from './constants';
 import './app.css';
+import Landing from './landing/landing';
 import Home from './home/home';
 import Nav from './nav/nav';
 import Bio from './bio/bio';
 import Gallery from './gallery/gallery';
-import TwoColumnGallery from './two-column-gallery/two-column-gallery';
 import Image from './image/image';
 import Contact from './contact/contact'
 import ContactThanks from './contact/thanks'
 import OilStatement from "./artist-statement/oils";
 import WatercolorsStatement from "./artist-statement/watercolors";
+import InstallationView from './installation-view/installation-view';
+import OneColumnGalleryImage from "./one-column-gallery/one-column-gallery";
+import ScrollToTop from './scroll-to-top';
 
 const PageNotFound = () => (
   <div className="contact">
@@ -33,29 +36,33 @@ const PageNotFound = () => (
 const AppRoutes = () => (
   <DocumentTitle title={getPageTitle()}>
     <Router>
-      <Route
-        render={({ location }) => (
-          <div className="main">
-            <div className="main__nav">
-              <Nav />
+      <ScrollToTop>
+        <Route
+          render={({ location }) => (
+            <div className="main">
+              <div className="main__nav">
+                <Nav />
+              </div>
+              <section className="main__body" role="main">
+                <Switch location={location}>
+                  <Route exact path="/" component={Landing}/>
+                  <Route exact path="/main" component={Home}/>
+                  <Route path="/about/oils" component={OilStatement} />
+                  <Route path="/about/watercolors" component={WatercolorsStatement} />
+                  <Route path="/installation" component={InstallationView}/>
+                  <Route path="/gallery/:galleryId(oils-14-18)" exact component={OneColumnGalleryImage} />
+                  <Route path="/gallery/:galleryId" component={Gallery} exact />
+                  <Route path="/image/:galleryId/:imageId" component={Image} />
+                  <Route path="/bio" component={Bio}/>
+                  <Route path="/contact" component={Contact}/>
+                  <Route path="/thanks" component={ContactThanks}/>
+                  <Route path="/about" render={() => <Redirect to="/bio" />} />
+                  <Route component={PageNotFound} />
+                </Switch>
+              </section>
             </div>
-            <section className="main__body" role="main">
-              <Switch location={location}>
-                <Route exact path="/" component={Home}/>
-                <Route path="/about/oils" component={OilStatement} />
-                <Route path="/about/watercolors" component={WatercolorsStatement} />
-                <Route path="/gallery/:galleryId(oils-14-18)" exact component={TwoColumnGallery} />
-                <Route path="/gallery/:galleryId" component={Gallery} exact />
-                <Route path="/image/:galleryId/:imageId" component={Image} />
-                <Route path="/bio" component={Bio}/>
-                <Route path="/contact" component={Contact}/>
-                <Route path="/thanks" component={ContactThanks}/>
-                <Route path="/about" render={() => <Redirect to="/bio" />} />
-                <Route component={PageNotFound} />
-              </Switch>
-            </section>
-          </div>
-        )} />
+          )} />
+      </ScrollToTop>
     </Router>
   </DocumentTitle>
 );

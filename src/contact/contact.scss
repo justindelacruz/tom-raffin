@@ -1,4 +1,4 @@
-@import '../util.scss';
+@import '../util';
 
 .contact {
   padding: $mobile-gutter;
@@ -36,5 +36,9 @@
       background-color: #4e87e4;
       border: 1px solid transparent;
     }
+  }
+
+  h1 {
+    @extend %heading-2;
   }
 }

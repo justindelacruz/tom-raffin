@@ -1,0 +1,29 @@
+@import './util';
+
+$icon-size: 2.825rem;
+
+.scroll-down-arrow {
+  position: fixed;
+  left: calc(50% - (#{$icon-size} / 2));
+  bottom: 20px;
+  line-height: 0;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+  z-index: 200;
+
+  @include respond-to(small) {
+    left: calc(50% + (#{$nav-width} / 2) - (#{$icon-size} / 2));
+  }
+
+  &__visible {
+    opacity: 1;
+  }
+
+  &__icon {
+    border-radius: 50%;
+    //background-color: rgba(0, 0, 0, 0.8);
+    color: #eee;
+    font-size: $icon-size;
+  }
+}

@@ -1,4 +1,4 @@
-@import '../util.scss';
+@import '../util';
 
 .image {
   position: relative;
@@ -13,6 +13,7 @@
 
   @include respond-to(small) {
     justify-content: center;
+    padding: $desktop-gutter;
   }
 
   &__overlay {
@@ -38,6 +39,10 @@
 
     &--prev {
       cursor: w-resize;
+    }
+
+    &--home {
+      width: 100%;
     }
 
     &--next {

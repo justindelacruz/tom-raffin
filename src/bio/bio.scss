@@ -1,4 +1,4 @@
-@import '../util.scss';
+@import '../util';
 
 .bio {
   padding: $mobile-gutter;
@@ -6,5 +6,9 @@
 
   @include respond-to(small) {
     padding: $desktop-gutter;
+  }
+
+  h1 {
+    @extend %heading-2;
   }
 }

@@ -1,6 +1,8 @@
 @import '../util';
 
-.two-column-gallery {
+$image-bottom-padding: 75px;
+
+.one-column-gallery {
   padding: $mobile-gutter;
   background-color: black;
   min-height: 100%;
@@ -24,19 +26,24 @@
   }
 
   &__item {
-    margin: 0 $mobile-gutter / 2 $mobile-gutter 0;
+    margin-bottom: $mobile-gutter;
 
     @include respond-to(small) {
-      margin: 0 $desktop-gutter / 2 $desktop-gutter 0;
+      height: calc(100vh - #{$desktop-gutter});
+      margin-bottom: 0;
     }
   }
 
-  &__item:nth-child(even) {
-    transform: translateY(50%);
-    margin: 0 0 $mobile-gutter $mobile-gutter / 2;
+  &__image {
+    object-fit: contain;
+    transition: opacity 150ms ease-in-out;
+
+    &:hover {
+      opacity: 0.80;
+    }
 
     @include respond-to(small) {
-      margin: 0 0 $desktop-gutter $desktop-gutter / 2;
+      height: calc(100% - #{$image-bottom-padding}); // accomodates text on image page
     }
   }
 }

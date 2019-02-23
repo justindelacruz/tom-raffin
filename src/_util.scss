@@ -1,7 +1,7 @@
 $desktop-gutter: 40px;
 $mobile-gutter: 20px;
 
-$nav-inner-width: 150px;
+$nav-inner-width: 225px;
 $nav-width: $nav-inner-width + 2*$desktop-gutter;
 $nav-height: 680px;
 $nav-height-small: 560px;
@@ -60,4 +60,22 @@ $nav-height-extra-small: 520px;
     text-align: center;
 
   }
+}
+
+%heading-1 {
+  font-family: "Bodoni 72 Smallcaps", IowanOldStyleBTPro-Roman, Lato, serif;
+  font-size: 3.375rem;
+  letter-spacing: -.1rem;
+  line-height: 3.375rem;
+  font-weight: 400;
+  margin-bottom: $mobile-gutter;
+}
+
+%heading-2 {
+  font-family: "Bodoni 72 Smallcaps", IowanOldStyleBTPro-Roman, Lato, serif;
+  font-size: 2.375rem;
+  letter-spacing: -.05rem;
+  line-height: 2.875rem;
+  font-weight: 400;
+  margin-bottom: $mobile-gutter;
 }

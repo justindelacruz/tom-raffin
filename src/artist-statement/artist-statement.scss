@@ -1,9 +1,18 @@
-@import '../util.scss';
+@import '../util';
 
 .artist-statement {
   padding: $mobile-gutter;
 
   @include respond-to(small) {
     padding: $desktop-gutter;
+  }
+
+  h1 {
+    @extend %heading-2;
+    margin-bottom: $mobile-gutter;
+
+    @include respond-to(small) {
+      margin-bottom: $mobile-gutter;
+    }
   }
 }

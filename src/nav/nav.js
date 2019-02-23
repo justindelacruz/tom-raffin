@@ -52,6 +52,7 @@ class Nav extends Component {
               Oils
             </li>
             <NavSubSection route="/about/oils" text="Artist Statement" onClick={this.toggleNav} />
+            <NavSubSection route="/installation" text="Installation View" onClick={this.toggleNav} />
             <NavSubSection route="/gallery/oils-14-18" routeFragment="oils-14-18" text="2014-2018" onClick={this.toggleNav} />
 
           </ul>

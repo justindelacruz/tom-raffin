@@ -1,4 +1,4 @@
-@import '../util.scss';
+@import '../util';
 
 .nav {
   &__header {
@@ -38,15 +38,10 @@
   }
 
   &__title {
+    @extend %heading-1;
     color: #111;
-    font-family: IowanOldStyleBTPro-Roman, Lato, serif;
-    font-size: 3.125rem;
-    letter-spacing: -.1rem;
-    line-height: 3.375rem;
-    font-weight: 400;
     white-space: pre-wrap;
     display: block;
-    width: 200px;
     transition: font-size 150ms ease-in-out, line-height 150ms ease-in-out;
 
     @include respond-to(small) {
@@ -94,7 +89,7 @@
 
   &__menu {
     list-style-type: none;
-    margin: 30px 0 0;
+    margin: 25px 0 0;
     transition: margin 150ms ease-in-out, font-size 150ms ease-in-out;
     padding: 0;
     font-size: 1.125rem;

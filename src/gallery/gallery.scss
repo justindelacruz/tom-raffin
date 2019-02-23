@@ -1,4 +1,4 @@
-@import '../util.scss';
+@import '../util';
 
 $grid-gutter: 20px;
 
@@ -28,7 +28,7 @@ $grid-gutter: 20px;
     display: inline-block;
 
     &:hover {
-      opacity: 0.9;
+      opacity: 0.8;
     }
 
     @include respond-to(small) {
