@@ -32,7 +32,17 @@ const OilStatement = () => (
           </p>
         </div>
         <div className="content-block__image about__image">
-          <img src={`${ASSET_BASE_URL}/images/tom-oils.jpg`} alt="Tom Raffin painting oil" />
+          <picture>
+            <source
+              srcSet={`${ASSET_BASE_URL}/images/tom-oils-1600.jpg`}
+              media="(min-width: 1200px)"
+            />
+            <source
+              srcSet={`${ASSET_BASE_URL}/images/tom-oils-1200.jpg`}
+              media="(min-width: 640px)"
+            />
+            <img src={`${ASSET_BASE_URL}/images/tom-oils-640.jpg`} alt="Tom Raffin painting oil" />
+          </picture>
         </div>
       </section>
     </div>

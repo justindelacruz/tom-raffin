@@ -32,12 +32,22 @@ class Home extends Component {
       <div className="home">
         <div className="home__wrapper">
           <Link to="/installation" className="home__link">
-            <img
-              src={`${ASSET_BASE_URL}/images/full/oils/2014-2018/9.jpg`}
-              className="home__image" alt="Oil"
-              ref={(r) => this.imageRef = r}
-              onLoad={this.updateImageHeight}
-            />
+            <picture>
+              <source
+                srcSet={`${ASSET_BASE_URL}/images/home-1600.jpg`}
+                media="(min-width: 1200px)"
+              />
+              <source
+                srcSet={`${ASSET_BASE_URL}/images/home-1200.jpg`}
+                media="(min-width: 640px)"
+              />
+              <img
+                alt="Gallery"
+                className="installationView__image"
+                src={`${ASSET_BASE_URL}/images/home-640.jpg`}
+                ref={(r) => this.imageRef = r}
+              />
+            </picture>
           </Link>
         </div>
       </div>

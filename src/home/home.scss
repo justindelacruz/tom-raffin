@@ -1,17 +1,12 @@
 @import '../util';
 
 .home {
-  padding: $mobile-gutter;
   width: 100%;
   height: 100%;
   background-color: black;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-
-  @include respond-to(small) {
-    padding: $mobile-gutter;
-  }
 
   &__caption {
     font-size: 0.875rem;
@@ -25,9 +20,10 @@
   }
 
   &__link {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
-    display: block;
   }
 
   &__image {

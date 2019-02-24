@@ -68,7 +68,6 @@ $nav-height-extra-small: 520px;
   letter-spacing: -.1rem;
   line-height: 3.375rem;
   font-weight: 400;
-  margin-bottom: $mobile-gutter;
 }
 
 %heading-2 {
@@ -78,4 +77,8 @@ $nav-height-extra-small: 520px;
   line-height: 2.875rem;
   font-weight: 400;
   margin-bottom: $mobile-gutter;
+
+  @include respond-to(small) {
+    line-height: 3.875rem;
+  }
 }

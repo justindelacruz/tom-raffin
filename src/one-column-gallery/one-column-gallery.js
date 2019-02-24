@@ -2,26 +2,30 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
+import LazyLoad from 'react-lazyload';
 import { ASSET_BASE_URL, getPageTitle } from '../constants';
 import ScrollDownArrow from "../scroll-down-arrow";
 import galleryData from '../data.json';
 import './one-column-gallery.css';
 
-const GalleryImage = ({ galleryId, item, onLoad }) => (
+const GalleryImage = ({ galleryId, height, item, onLoad }) => (
   <div className="one-column-gallery__item">
     <Link to={`/image/${galleryId}/${item.id}`}>
-      <img
-        alt={item.name}
-        className="gallery__image one-column-gallery__image"
-        onLoad={onLoad}
-        src={`${ASSET_BASE_URL}/images/full/${item.src}`}
-      />
+      <LazyLoad height={height} once>
+        <img
+          alt={item.name}
+          className="gallery__image one-column-gallery__image"
+          onLoad={onLoad}
+          src={`${ASSET_BASE_URL}/images/full/${item.src}`}
+        />
+      </LazyLoad>
     </Link>
   </div>
 );
 
 GalleryImage.propTypes = {
   galleryId: PropTypes.string.isRequired,
+  height: PropTypes.number.isRequired,
   item: PropTypes.object.isRequired,
   onLoad: PropTypes.func.isRequired,
 };
@@ -51,6 +55,7 @@ class OneColumnGalleryImage extends Component {
         galleryId={galleryId}
         item={item}
         key={item.src}
+        height={item.height}
         onLoad={this.handleImageLoad}
       />
     );

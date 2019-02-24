@@ -43,14 +43,18 @@ class InstallationView extends Component {
         <div className="installationView__wrapper">
           <picture>
             <source
-              srcSet={`${ASSET_BASE_URL}/images/installation/installation-1600.jpg`}
-              media="(min-width: 1600px)"
+              srcSet={`${ASSET_BASE_URL}/images/installation-1600.jpg`}
+              media="(min-width: 1200px)"
+            />
+            <source
+              srcSet={`${ASSET_BASE_URL}/images/installation-1200.jpg`}
+              media="(min-width: 640px)"
             />
             <img
               alt="Gallery"
               className="installationView__image"
               onLoad={this.handleImageLoad}
-              src={`${ASSET_BASE_URL}/images/installation/installation-900.jpg`}
+              src={`${ASSET_BASE_URL}/images/installation/installation-640.jpg`}
             />
           </picture>
 
