@@ -1,21 +1,33 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
+import RouteContext from './route-context';
 
-class ScrollToTop extends Component {
+class ScrollToTop extends PureComponent {
   componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
+    const { location } = this.props;
+    const { previousRoute } = this.context;
+
+    if (location.pathname !== prevProps.location.pathname && prevProps.location.pathname !== previousRoute) {
+      this.context.updateRouteContext(prevProps.location.pathname);
+    }
+
+    if (location !== prevProps.location && previousRoute !== '/gallery/oils-14-18') {
       window.scrollTo(0, 0)
     }
   }
 
   render() {
-    return this.props.children;
+    const { children } = this.props;
+
+    return children;
   }
 }
 
 ScrollToTop.propTypes = {
   location: PropTypes.object.isRequired,
 };
+
+ScrollToTop.contextType = RouteContext;
 
 export default withRouter(ScrollToTop)

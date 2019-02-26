@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import throttle from 'lodash/throttle';
 import { Link } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -7,8 +9,9 @@ import { ASSET_BASE_URL, getPageTitle } from '../constants';
 import './image.css';
 import Info from './info';
 import galleryData from '../data.json';
+import RouteContext from "../route-context";
 
-class Image extends Component {
+class Image extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -40,8 +43,9 @@ class Image extends Component {
   }
 
   render() {
-    const { match } = this.props;
+    const { history, match } = this.props;
     const { imageHeight } = this.state;
+    const { previousRoute } = this.context;
     const { galleryId, imageId } = match.params;
     const gallery = galleryData[galleryId];
     const images = gallery.items;
@@ -50,6 +54,9 @@ class Image extends Component {
     });
     const galleryImage = images[index];
     const infoHeight = (imageHeight / galleryImage.height) * galleryImage.width || '100%';
+
+    // If previous route is single-column gallery, use history.goBback() to preserve scroll location
+    const isPrevRouteSingleColumnGallery = previousRoute === '/gallery/oils-14-18';
 
     const hasPrev = index-1 >= 0;
     const hasNext = index+1 < images.length-1;
@@ -67,9 +74,19 @@ class Image extends Component {
               <div className="image__item-wrapper">
                 <div className="image__item">
                   <div className="image__overlay">
-                    <Link to={homeLink} className="image__overlay-button image__overlay-button--home">
-                      <i className="material-icons image__overlay-icon">navigate_before</i>
-                    </Link>
+                    { isPrevRouteSingleColumnGallery ?
+                      <a
+                        href={homeLink}
+                        onClick={(e) => { e.preventDefault(); history.goBack(); }}
+                        className="image__overlay-button image__overlay-button--home"
+                      >
+                        <i className="material-icons image__overlay-icon">navigate_before</i>
+                      </a>
+                    :
+                      <Link to={homeLink} className="image__overlay-button image__overlay-button--home">
+                        <i className="material-icons image__overlay-icon">navigate_before</i>
+                      </Link>
+                    }
                     {/*
                     <Link to={prevLink} className="image__overlay-button image__overlay-button--prev">
                       <i className="material-icons image__overlay-icon">navigate_before</i>
@@ -125,4 +142,11 @@ class Image extends Component {
   }
 }
 
-export default Image;
+Image.propTypes = {
+  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+};
+
+Image.contextType = RouteContext;
+
+export default withRouter(Image);
