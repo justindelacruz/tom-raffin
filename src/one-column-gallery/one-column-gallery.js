@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import LazyLoad from 'react-lazyload';
@@ -17,6 +16,7 @@ const GalleryImage = ({ galleryId, height, item, onLoad }) => (
         className="gallery__image one-column-gallery__image"
         onLoad={onLoad}
         src={`${ASSET_BASE_URL}/images/full/${item.src}`}
+        style={{ maxHeight: item.height }}
       />
     </LazyLoad>
     <Info

@@ -1,7 +1,5 @@
 @import '../util';
 
-$image-bottom-padding: 110px;
-
 .one-column-gallery {
   padding: $mobile-gutter;
   background-color: black;
@@ -26,10 +24,11 @@ $image-bottom-padding: 110px;
   }
 
   &__item {
-    margin-bottom: $mobile-gutter;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $mobile-gutter * 2;
 
     @include respond-to(small) {
-      padding-bottom: $image-bottom-padding;
     }
   }
 
