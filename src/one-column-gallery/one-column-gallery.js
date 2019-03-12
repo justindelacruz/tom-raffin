@@ -6,20 +6,25 @@ import LazyLoad from 'react-lazyload';
 import { ASSET_BASE_URL, getPageTitle } from '../constants';
 import ScrollDownArrow from "../scroll-down-arrow";
 import galleryData from '../data.json';
+import Info from '../image/info';
 import './one-column-gallery.css';
 
 const GalleryImage = ({ galleryId, height, item, onLoad }) => (
   <div className="one-column-gallery__item">
-    <Link to={`/image/${galleryId}/${item.id}`}>
-      <LazyLoad height={height} once>
-        <img
-          alt={item.name}
-          className="gallery__image one-column-gallery__image"
-          onLoad={onLoad}
-          src={`${ASSET_BASE_URL}/images/full/${item.src}`}
-        />
-      </LazyLoad>
-    </Link>
+    <LazyLoad height={height} once>
+      <img
+        alt={item.name}
+        className="gallery__image one-column-gallery__image"
+        onLoad={onLoad}
+        src={`${ASSET_BASE_URL}/images/full/${item.src}`}
+      />
+    </LazyLoad>
+    <Info
+      date={item.date}
+      dimension={item.dimension}
+      medium={item.medium}
+      name={item.name}
+    />
   </div>
 );
 

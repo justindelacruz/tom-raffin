@@ -10,27 +10,6 @@
     flex-wrap: nowrap;
   }
 
-  &__nav {
-    flex: 0;
-    padding: $mobile-gutter;
-
-    @include respond-to(small) {
-      flex: 0 0 150px;
-      padding: $desktop-gutter;
-      transition: padding 150ms ease-in-out;
-
-      @media (min-height: $nav-height-extra-small) {
-        // If it doesn't fit, we must scroll
-        position: fixed;
-        width: $nav-inner-width;
-      }
-
-      @media (max-height: $nav-height) {
-        padding: $mobile-gutter $desktop-gutter;
-      }
-    }
-  }
-
   &__body {
     flex: 1 0;
     min-width: 0;
@@ -38,7 +17,14 @@
     @include respond-to(small) {
       flex: 0 1 100%;
       height: 100%;
+    }
+  }
+}
 
+// Only add padding if nav is visible
+.nav + .main {
+  &__body {
+    @include respond-to(small) {
       @media (min-height: $nav-height-extra-small) {
         margin-left: $nav-width;
       }

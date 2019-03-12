@@ -1,6 +1,25 @@
 @import '../util';
 
 .nav {
+  flex: 0;
+  padding: $mobile-gutter;
+
+  @include respond-to(small) {
+    flex: 0 0 150px;
+    padding: $desktop-gutter;
+    transition: padding 150ms ease-in-out;
+
+    @media (min-height: $nav-height-extra-small) {
+      // If it doesn't fit, we must scroll
+      position: fixed;
+      width: $nav-inner-width;
+    }
+
+    @media (max-height: $nav-height) {
+      padding: $mobile-gutter $desktop-gutter;
+    }
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;

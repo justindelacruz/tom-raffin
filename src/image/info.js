@@ -10,7 +10,7 @@ class Info extends Component {
     return (
       <div className={classNames('info', { 'info--inline': compress })} style={{ width }}>
         <p className={classNames('info__text', { 'info__text--inline': compress })}>
-          {name && <strong>{ name }&nbsp;&middot;&nbsp;</strong> }
+          {name && <strong>{ name }<br /></strong> }
           { date && <span>{ date }&nbsp;&middot;&nbsp;</span> }
           { medium && <span>{medium}&nbsp;&middot;&nbsp;</span>}
           { dimension && <span className="info__dimension">{ dimension }</span>}

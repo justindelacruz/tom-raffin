@@ -1,6 +1,6 @@
 @import '../util';
 
-$image-bottom-padding: 75px;
+$image-bottom-padding: 110px;
 
 .one-column-gallery {
   padding: $mobile-gutter;
@@ -29,21 +29,11 @@ $image-bottom-padding: 75px;
     margin-bottom: $mobile-gutter;
 
     @include respond-to(small) {
-      height: calc(100vh - #{$desktop-gutter});
-      margin-bottom: 0;
+      padding-bottom: $image-bottom-padding;
     }
   }
 
   &__image {
     object-fit: contain;
-    transition: opacity 150ms ease-in-out;
-
-    &:hover {
-      opacity: 0.80;
-    }
-
-    @include respond-to(small) {
-      height: calc(100% - #{$image-bottom-padding}); // accomodates text on image page
-    }
   }
 }

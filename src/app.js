@@ -57,9 +57,7 @@ class AppRoutes extends Component {
                 <Route
                   render={({ location }) => (
                     <div className="main">
-                      <div className="main__nav">
-                        <Nav />
-                      </div>
+                      <Nav />
                       <section className="main__body" role="main">
                         <Switch location={location}>
                           <Route exact path="/" component={Landing}/>

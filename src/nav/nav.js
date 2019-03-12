@@ -36,9 +36,13 @@ class Nav extends Component {
   render () {
     const { location: { pathname } } = this.props;
 
+    if (pathname === '/') {
+      return null;
+    }
+
     return (
       <nav className="nav">
-        <Link to="/" className="nav__title">
+        <Link to="/main" className="nav__title">
           Tom Raffin
         </Link>
 
