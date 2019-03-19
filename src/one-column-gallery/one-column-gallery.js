@@ -11,13 +11,14 @@ import './one-column-gallery.css';
 const GalleryImage = ({ galleryId, height, item, onLoad }) => (
   <div className="one-column-gallery__item">
     <LazyLoad height={height} once>
-      <img
-        alt={item.name}
-        className="gallery__image one-column-gallery__image"
-        onLoad={onLoad}
-        src={`${ASSET_BASE_URL}/images/full/${item.src}`}
-        style={{ maxHeight: item.height }}
-      />
+      <div className="image__overlay" />
+        <img
+          alt={item.name}
+          className="gallery__image one-column-gallery__image"
+          onLoad={onLoad}
+          src={`${ASSET_BASE_URL}/images/full/${item.src}`}
+          style={{ maxHeight: item.height }}
+        />
     </LazyLoad>
     <Info
       date={item.date}

@@ -23,7 +23,15 @@
     }
   }
 
+  &__overlay {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+  }
+
   &__item {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: $mobile-gutter * 2;
