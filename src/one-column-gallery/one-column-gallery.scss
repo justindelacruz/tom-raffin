@@ -27,12 +27,15 @@
     display: flex;
     flex-direction: column;
     margin-bottom: $mobile-gutter * 2;
+    max-height: calc(100vh - #{$mobile-gutter * 2} - #{$mobile-nav-height});
 
     @include respond-to(small) {
+      max-height: calc(100vh - #{$desktop-gutter * 2});
     }
   }
 
   &__image {
     object-fit: contain;
+    overflow: hidden;
   }
 }

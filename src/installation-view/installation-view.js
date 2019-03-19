@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import throttle from 'lodash/throttle';
 import { ASSET_BASE_URL } from '../constants';
 import './installation-view.css';
@@ -58,6 +59,11 @@ class InstallationView extends Component {
             />
           </picture>
 
+          <div className="installationView__linkContainer">
+            <Link to="/gallery/oils-14-18" className="installationView__link">
+              see the oil paintings
+            </Link>
+          </div>
         </div>
       </div>
     );
