@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
 import throttle from 'lodash/throttle';
 import { Link } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -10,6 +9,7 @@ import './image.scss';
 import Info from './info';
 import galleryData from '../data.json';
 import RouteContext from "../route-context";
+import withRouterWorkaround from '../withRouterWorkaround';
 
 class Image extends PureComponent {
   constructor(props) {
@@ -149,4 +149,4 @@ Image.propTypes = {
 
 Image.contextType = RouteContext;
 
-export default withRouter(Image);
+export default withRouterWorkaround(Image);

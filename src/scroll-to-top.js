@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
 import RouteContext from './route-context';
+import withRouterWorkaround from './withRouterWorkaround';
 
 class ScrollToTop extends PureComponent {
   componentDidUpdate(prevProps) {
@@ -30,4 +30,4 @@ ScrollToTop.propTypes = {
 
 ScrollToTop.contextType = RouteContext;
 
-export default withRouter(ScrollToTop)
+export default withRouterWorkaround(ScrollToTop)
