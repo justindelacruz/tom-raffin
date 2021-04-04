@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import DocumentTitle from 'react-document-title';
 import { ASSET_BASE_URL, getPageTitle } from '../constants';
-import './image.css';
+import './image.scss';
 import Info from './info';
 import galleryData from '../data.json';
 import RouteContext from "../route-context";

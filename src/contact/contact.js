@@ -1,7 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { getPageTitle } from '../constants';
-import './contact.css';
+import './contact.scss';
 
 const Contact = () => (
   <DocumentTitle title={getPageTitle('Contact')}>

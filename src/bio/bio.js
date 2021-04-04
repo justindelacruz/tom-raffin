@@ -1,5 +1,5 @@
 import React from 'react';
-import './bio.css';
+import './bio.scss';
 import DocumentTitle from 'react-document-title';
 import { ASSET_BASE_URL, getPageTitle } from '../constants';
 

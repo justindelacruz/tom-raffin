@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames';
-import './scroll-down-arrow.css';
+import './scroll-down-arrow.scss';
 
 const SCROLL_THRESHOLD = 150;
 

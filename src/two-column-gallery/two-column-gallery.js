@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
-import './two-column-gallery.css';
+import './two-column-gallery.scss';
 import { ASSET_BASE_URL, getPageTitle } from '../constants';
 import galleryData from '../data.json';
 import { Link } from 'react-router-dom';

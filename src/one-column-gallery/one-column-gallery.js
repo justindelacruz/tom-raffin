@@ -6,7 +6,7 @@ import { ASSET_BASE_URL, getPageTitle } from '../constants';
 import ScrollDownArrow from "../scroll-down-arrow";
 import galleryData from '../data.json';
 import Info from '../image/info';
-import './one-column-gallery.css';
+import './one-column-gallery.scss';
 
 const GalleryImage = ({ galleryId, height, item, onLoad }) => (
   <div className="one-column-gallery__item">
@@ -70,7 +70,7 @@ class OneColumnGalleryImage extends Component {
       <DocumentTitle title={getPageTitle(`${gallery.section} - ${gallery.subsection}`)}>
         <div className="one-column-gallery">
           <ScrollDownArrow enabled={hasAnyImageLoaded} />
-          { galleryImages.map((galleryImage, i) => galleryImage) }
+          { galleryImages.map((galleryImage) => galleryImage) }
         </div>
       </DocumentTitle>
     );

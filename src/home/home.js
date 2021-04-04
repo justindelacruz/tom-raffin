@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import throttle from 'lodash/throttle';
 import { Link } from 'react-router-dom';
 import { ASSET_BASE_URL } from '../constants';
-import './home.css';
+import './home.scss';
 
 class Home extends Component {
   constructor(props) {

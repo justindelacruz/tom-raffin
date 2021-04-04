@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 import DocumentTitle from 'react-document-title';
 import { getPageTitle } from './constants';
-import './app.css';
+import './app.scss';
 import Landing from './landing/landing';
 import Home from './home/home';
 import Nav from './nav/nav';

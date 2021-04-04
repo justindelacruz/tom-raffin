@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import throttle from 'lodash/throttle';
 import { ASSET_BASE_URL } from '../constants';
-import './installation-view.css';
+import './installation-view.scss';
 import ScrollDownArrow from '../scroll-down-arrow';
 
 class InstallationView extends Component {

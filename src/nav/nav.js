@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import classNames from 'classnames';
-import './nav.css';
+import './nav.scss';
 import { Link } from 'react-router-dom';
 
 const NavSubSectionComponent = ({ route, routeFragment = route, text, onClick, location: { pathname } }) => (
@@ -85,7 +85,7 @@ class Nav extends Component {
       </nav>
     );
   }
-};
+}
 
 Nav.proptypes = {
   location: PropTypes.object,

@@ -1,7 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { ASSET_BASE_URL, getPageTitle } from '../constants';
-import './artist-statement.css';
+import './artist-statement.scss';
 
 const OilStatement = () => (
   <DocumentTitle title={getPageTitle('Oils - Artist Statement')}>

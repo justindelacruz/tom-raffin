@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DocumentTitle from 'react-document-title';
-import './contact.css';
+import './contact.scss';
 import { getPageTitle } from '../constants';
 
 const Thanks = () => (

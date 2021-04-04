@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
-import './gallery.css';
+import './gallery.scss';
 import { ASSET_BASE_URL, getPageTitle } from '../constants';
 import galleryData from '../data.json';
 import Masonry from 'masonry-layout';
@@ -49,7 +49,7 @@ class Gallery extends Component {
     const { match } = this.props;
     const galleryId = match.params.galleryId;
     const gallery = galleryData[galleryId];
-    const galleryImages = gallery.items.map((item, i) => {
+    const galleryImages = gallery.items.map((item) => {
       return <GalleryImage galleryId={galleryId} item={item} key={item.src} />;
     });
 
