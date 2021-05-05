@@ -37,7 +37,11 @@ export default function register() {
         checkValidServiceWorker(swUrl);
       } else {
         // Remove existing service workers for now
-        unregister();
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister()
+          }
+        })
 
         // Is not local host. Just register service worker
         // registerValidSW(swUrl);
